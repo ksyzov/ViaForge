@@ -1,0 +1,23 @@
+{
+  "package": "viaforge.mixin",
+  "refmap": "mixins.viaforge.refmap.json",
+  "minVersion": "0.7.11",
+  "compatibilityLevel": "JAVA_8",
+  "client": [
+    "AccessorC02PacketUseEntity",
+    "AccessorC17PacketCustomPayload",
+    "MixinC00Handshake",
+    "MixinC0FPacketConfirmTransaction",
+    "MixinEntity",
+    "MixinEntityLivingBase",
+    "MixinEntityPlayerSP",
+    "MixinGuiMultiplayer",
+    "MixinItemBlock",
+    "MixinMinecraft",
+    "MixinNetHandlerPlayClient",
+    "MixinNetworkManager",
+    "MixinNetworkManager_5",
+    "MixinS32PacketConfirmTransaction",
+    "MixinS3EPacketTeams"
+  ]
+}
