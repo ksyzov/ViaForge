@@ -1,6 +1,7 @@
 import dev.architectury.pack200.java.Pack200Adapter
 import net.fabricmc.loom.task.RemapJarTask
 import org.apache.commons.lang3.SystemUtils
+import java.io.ByteArrayOutputStream
 
 plugins {
     idea
@@ -11,7 +12,13 @@ plugins {
     id("net.kyori.blossom") version "1.3.1"
 }
 
-val version: String = "1.0"
+val version: String = ByteArrayOutputStream().use {
+    exec {
+        commandLine("git", "rev-parse", "--short", "HEAD")
+        standardOutput = it
+    }
+    it.toString().trim()
+}
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(8))
