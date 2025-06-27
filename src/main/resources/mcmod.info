@@ -1,6 +1,8 @@
 [
   {
     "name": "ViaForge",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
     "authorList": [
       "ksyz"
     ]

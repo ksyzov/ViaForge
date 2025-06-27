@@ -92,11 +92,8 @@ tasks.withType(Jar::class) {
 }
 
 tasks.processResources {
-    inputs.property("version", project.version)
+    inputs.property("version", version)
     inputs.property("mcversion", "1.8.9")
-    inputs.property("modid", "viaforge")
-    inputs.property("mixinGroup", "viaforge.mixin")
-
     filesMatching(listOf("mcmod.info", "mixins.viaforge.json")) {
         expand(inputs.properties)
     }
