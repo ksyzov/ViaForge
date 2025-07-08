@@ -12,6 +12,7 @@ import com.viaversion.viaversion.api.type.Types;
 import com.viaversion.viaversion.protocols.v1_8to1_9.packet.ServerboundPackets1_9;
 import de.florianmichael.vialoadingbase.ViaLoadingBase;
 import io.netty.buffer.Unpooled;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItemFrame;
@@ -43,6 +44,22 @@ public class ViaForge {
       .runDirectory(new File(Loader.instance().getConfigDir(), "ViaForge"))
       .nativeVersion(ProtocolVersion.v1_8.getVersion())
       .forceNativeVersionCondition(mc::isSingleplayer)
+      .onProtocolReload(targetVersion -> {
+        Block blockLilyPad = Block.getBlockById(111 /* waterlily */);
+
+        if (!targetVersion.newerThanOrEqualTo(ProtocolVersion.v1_9)) {
+          blockLilyPad.setBlockBounds(
+            0.0F, 0.0F, 0.0F,
+            1.0F, 0.015625F, 1.0F
+          );
+          return;
+        }
+
+        blockLilyPad.setBlockBounds(
+          0.0625F, 0.0F, 0.0625F,
+          0.9375F, 0.09375F, 0.9375F
+        );
+      })
       .build();
     ProtocolManager protocolManager = Via.getManager().getProtocolManager();
     FixProtocol1_9To1_8.fix(protocolManager.getProtocol(Protocol1_9To1_8.class));
