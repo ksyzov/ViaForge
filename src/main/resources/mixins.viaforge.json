@@ -6,6 +6,7 @@
   "client": [
     "AccessorC02PacketUseEntity",
     "AccessorC17PacketCustomPayload",
+    "MixinBlockLadder",
     "MixinC00Handshake",
     "MixinC0FPacketConfirmTransaction",
     "MixinEntity",
